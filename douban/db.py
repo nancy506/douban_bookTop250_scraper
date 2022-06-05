@@ -1,3 +1,4 @@
+#used for ingesting data from csv file t o sql
 import csv, sqlite3
 
 import click
@@ -21,8 +22,8 @@ def close_db(e=None):
         db.close()
     
 def init_db():
+    print ('i am here')
     db = get_db()
-
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
 

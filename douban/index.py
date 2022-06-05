@@ -4,7 +4,7 @@ from flask import Flask
 import sqlite3 as sql
 from flask import render_template
 
-from douban import ingestor
+from douban import db
 
 
 def create_app(test_config=None):
@@ -33,12 +33,12 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
     
-    from . import ingestor
-    ingestor.init_app(app)
+    from . import db
+    db.init_app(app)
     
     @app.route('/list')
     def list():
-        cur = ingestor.get_db().execute("select * from books")        
+        cur = db.get_db().execute("select * from books")        
         rows = cur.fetchall()
         return render_template("list.html",rows = rows)
     
@@ -47,15 +47,3 @@ def create_app(test_config=None):
         return render_template("index.html",)
 
     return app
-
-app = Flask(__name__)
-
-@app.route("/")
-#def hello_world():
-    #return "<p>Hello, Wdsdsdsorld!</p>"
-
-def hello(name=None):
-    return render_template('index.html', name=name)
-
-if __name__ == '__main__':
-   app.run()
