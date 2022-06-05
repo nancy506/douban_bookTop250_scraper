@@ -1,3 +1,0 @@
-date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
-20:21:24	162/162	---M--	301	error ('Moved%20Permanently')	text/html	date:Mon,%2006%20Dec%202021%2004:21:24%20GMT	http://nancy5062000%40hotmail.com:fewpej-cocwy8-jyvhiR@www.douban.com/robots.txt		(from )
-20:21:24	162/162	---M--	301	error ('Moved%20Permanently')	text/html	date:Mon,%2006%20Dec%202021%2004:21:24%20GMT	http://nancy5062000%40hotmail.com:fewpej-cocwy8-jyvhiR@www.douban.com/	/Users/nancy506/websites/douban/www.douban.com/index.html	(from )
