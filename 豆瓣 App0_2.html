@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>豆瓣 App</title>
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" name="viewport"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="https://img9.doubanio.com/f/frodo/77bb3d07f04fb3af5fcc197c76e5e35f97216903/css/lib/normalize.css" media="screen" rel="stylesheet" type="text/css"/>
+<meta content="豆瓣 App" name="description">
+<meta content="豆瓣, Douban, iPhone App, Android App" name="keywords">
+<link href="https://img9.doubanio.com/misc/mixed_static/21f5da18d025770a.css" rel="stylesheet"/>
+</meta></meta></head>
+<body>
+<div hidden="" id="wrap">
+<section class="section first">
+<div class="content">
+<img class="cover" src="https://img9.doubanio.com/view/puppy_image/raw/public/17705622af81ieohwm0.jpg"/>
+<div class="intro">
+<img class="logo" src="https://img9.doubanio.com/f/frodo/144e6fb7d96701944e7dbb1a9bad51bdb1debe29/pics/app/logo.png"/>
+<div class="info">
+<div class="tit"><span>豆瓣 7.0</span></div>
+<div class="con">有趣多元的文化生活社区</div>
+</div>
+<div class="pin">
+<img alt="" src="https://img9.doubanio.com/f/frodo/e60d42e7a1fef37687e1445a951353b8b87fef08/pics/app/pin.png">
+<p>扫描下载豆瓣客户端</p>
+</img></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="content">
+<img alt="" class="bg" src="https://img9.doubanio.com/view/puppy_image/raw/public/177056b71790ug31s6h.jpg"/>
+<div class="tit">探索书影音</div>
+<div class="con">参考豆瓣评分与榜单，发现优质书影音</div>
+<img alt="" class="childpic" src="https://img9.doubanio.com/view/puppy_image/raw/public/17713ad1543zo01ag45.jpg"/>
+</div>
+</section>
+<section class="section">
+<div class="content">
+<img alt="" class="bg" src="https://img9.doubanio.com/view/puppy_image/raw/public/17713b75a2aoeutbjwg.jpg"/>
+<div class="tit">在小组交流</div>
+<div class="con">与同好一起深入交流、寻找共鸣</div>
+<img alt="" class="childpic" src="https://img9.doubanio.com/view/puppy_image/raw/public/177378bf765cxml96ht.jpg"/>
+</div>
+</section>
+<section class="section">
+<div class="content">
+<img alt="" class="bg" src="https://img9.doubanio.com/view/puppy_image/raw/public/177056bd831exg9abn6.jpg"/>
+<div class="tit">我在豆瓣</div>
+<div class="con">记录生活表达自我 遇到志趣相投的人</div>
+<img alt="" class="childpic" src="https://img9.doubanio.com/view/puppy_image/raw/public/177378c714fmhse9rtk.jpg"/>
+</div>
+</section>
+<section class="section">
+<div class="content">
+<img alt="" class="bg" src="https://img9.doubanio.com/view/puppy_image/raw/public/177056c003e8p0jchi3.jpg"/>
+<div class="tit">市集</div>
+<div class="con">挑选你心仪的商品和课程</div>
+<img alt="" class="childpic" src="https://img9.doubanio.com/view/puppy_image/raw/public/1771edd69d317kx6fly.jpg"/>
+</div>
+<div class="copyright">
+<div class="pin">
+<img alt="" src="https://img9.doubanio.com/f/frodo/e60d42e7a1fef37687e1445a951353b8b87fef08/pics/app/pin.png">
+<p>扫描下载豆瓣客户端</p>
+</img></div>
+<p>©2005－2022 douban.com, all rights reserved</p>
+</div>
+</section>
+</div>
+<div class="returntop"></div>
+</body>
+<script src="https://img9.doubanio.com/f/frodo/ed9f4b2aaafbe52298952612957ab60162bd4f35/js/lib/jquery/jquery.js"></script>
+<script>
+        $(function(){
+            var $returnTop = $('div.returntop')
+            $returnTop.on('click', function(){
+                window.scrollTo({
+                    behavior: 'smooth',
+                    top: 0,
+                })
+            });
+
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.top <= (window.innerHeight)
+                );
+            }
+            var $sections = $('section.section')
+            $(window).on('scroll', e => {
+                console.log('scroll', e)
+                if (window.scrollY === 0) {
+                    $returnTop.hide()
+                } else {
+                    $returnTop.show()
+                }
+                $sections.each((i, e) => {
+                    var $e = $(e)
+                    if (isInViewport(e)) {
+                        if (!$e.hasClass('active')) {
+                            $(e).addClass('active')
+                        }
+                    } else {
+                        // if ($e.hasClass('active')) {
+                        //     $(e).removeClass('active')
+                        // }
+                    }
+                })
+            })
+        });
+        function response(resize) {
+            $('.content').css('height', Math.min(Math.max(window.innerHeight, 800)* .8, Math.max(window.innerWidth, 1280) / 1280 * 900 * .8))
+            $('#wrap').attr('hidden', false)
+        }
+
+        response()
+        $(window).on('resize', response)
+    </script>
+<script>
+      !function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-53594431-1","auto"),ga("send","pageview");
+
+    </script>
+<!-- COLLECTED JS -->
+</html>
